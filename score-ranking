@@ -77,7 +77,7 @@ while(<IN>) {
     /(.+),(.+)/ or die "Unexpected line in ranking file: $_";
     $ranks{$1}={susp => $2};
     if($cnt <=1){
-        print "ZM: $ranks{$1}";
+        print "ZM: $ranks{$1}{susp}";
         $cnt ++;
 
     }
