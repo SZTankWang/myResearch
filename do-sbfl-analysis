@@ -54,6 +54,9 @@ for FORMULA in tarantula; do
       DIR="scoring-$SCORING_SCHEME"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
       DEST="$(pwd)/score.txt"
       pwd
+
+      # remove "" in line-susp
+      sed -i 's/"//g' $LINE_SUSPS_FILE
       ../../../score-ranking --project "$PROJECT" --bug "$BUG" \
                     --line-susps <(tail -n +2 "$LINE_SUSPS_FILE") \
                     --scoring-scheme "$SCORING_SCHEME" \
